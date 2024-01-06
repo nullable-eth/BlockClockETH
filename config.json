@@ -2,93 +2,70 @@
   "sort_symbols": true,
   "block_clock_address": "http://192.168.1.60",
   "block_clock_password": "",
-  "smtp_server":"smtp.gmail.com",
-  "smtp_port":"587",
-  "smtp_user":"someoneelse@gmail.com",
-  "smtp_pass":"somepassword",
-  "notify_address":"someone@gmail.com",
-
+  "smtp_server": "smtp.gmail.com",
+  "smtp_port": "587",
+  "smtp_user": "someoneelse@gmail.com",
+  "smtp_pass": "",
+  "notify_address": "someone@somewhere.com",
   "tokens": [
     {
-      "type":"coingecko",
+      "type": "coingecko",
+      "platform": "ethereum",
+      "currency": "usd",
+      "display_currency": "USD",
+      "symbol": "LOOKS",
+      "contract_address": "0xf4d2888d29d722226fafa5d9b24f9164c092421e",
+      "light_percent": 40.0,
+      "show_duration_seconds": 90
+    },
+    {
+      "type": "coingecko",
+      "platform": "ethereum",
       "currency": "usd",
       "display_currency": "USD",
       "symbol": "MATIC",
       "contract_address": "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
-      "light_percent": 20.0,
+      "light_percent": 40.0,
       "show_duration_seconds": 90
     },
     {
-      "type":"coingecko",
+      "type": "coingecko",
+      "platform": "ethereum",
       "currency": "usd",
       "display_currency": "USD",
       "symbol": "SNX",
       "contract_address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
-      "light_percent": 20.0,
+      "light_percent": 40.0,
       "show_duration_seconds": 90
     },
     {
-      "type":"coingecko",
-      "currency": "usd",
-      "display_currency": "USD",
-      "symbol": "LDO",
-      "contract_address": "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
-      "light_percent": 20.0,
-      "show_duration_seconds": 90
-    },
-    {
-      "type":"coingecko",
-      "currency": "usd",
-      "display_currency": "USD",
-      "symbol": "BAL",
-      "contract_address": "0xba100000625a3754423978a60c9317c58a424e3d",
-      "light_percent": 20.0,
-      "show_duration_seconds": 90
-    },
-    {
-      "type":"coingecko",
-      "currency": "usd",
-      "display_currency": "USD",
-      "symbol": "ENJ",
-      "contract_address": "0xf629cbd94d3791c9250152bd8dfbdf380e2a3b9c",
-      "light_percent": 20.0,
-      "show_duration_seconds": 90
-    },
-    {
-      "type":"coingecko",
-      "currency": "usd",
-      "display_currency": "USD",
-      "symbol": "LINK",
-      "contract_address": "0x514910771af9ca656af840dff83e8264ecf986ca",
-      "light_percent": 20.0,
-      "show_duration_seconds": 90
-    },
-    {
-      "type":"coingecko",
+      "type": "coingecko",
+      "platform": "ethereum",
       "currency": "usd",
       "display_currency": "USD",
       "symbol": "AAVE",
       "contract_address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
-      "light_percent": 10.0,
+      "light_percent": 20.0,
       "show_duration_seconds": 90
     },
     {
-      "type":"coingecko",
-      "currency": "eth",
-      "display_currency": "ETH",
-      "symbol": "stETH",
-      "contract_address": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-      "light_price_above": 1.0,
-      "notify":true,
+      "type": "coingecko",
+      "platform": "arbitrum-one",
+      "currency": "usd",
+      "display_currency": "USD",
+      "symbol": "GG",
+      "contract_address": "0x000000000026839b3f4181f2cf69336af6153b99",
+      "light_percent": 20.0,
       "show_duration_seconds": 90
     },
     {
-      "type":"coingecko",
+      "type": "coingecko",
+      "platform": "ethereum",
       "currency": "usd",
       "display_currency": "USD",
       "symbol": "ETH",
       "contract_address": "ethereum",
-      "light_percent": 10.0,
+      "light_percent": 20.0,
       "show_duration_seconds": 90
     }
   ]

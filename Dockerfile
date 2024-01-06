@@ -3,4 +3,8 @@ RUN mkdir /app
 ADD . /app
 WORKDIR /app
 RUN go build -o BlockClockETH .
-CMD ["/app/BlockClockETH"]
+RUN cp /app/BlockClockETH /
+RUN cp /app/config.json /
+RUN rm -rf /app
+WORKDIR /
+CMD ["/BlockClockETH"]

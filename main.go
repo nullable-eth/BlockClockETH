@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -17,7 +16,6 @@ import (
 
 	"BlockClockETH/blockClock"
 	coingecko2 "BlockClockETH/coingecko"
-	"BlockClockETH/coingecko/types"
 )
 
 type TokenPrice struct {
@@ -26,6 +24,7 @@ type TokenPrice struct {
 	Symbol           string `json:"symbol"`
 	DisplayCurrency  string `json:"display_currency"`
 	ContractAddress  string `json:"contract_address"`
+	Platform         string `json:"platform"`
 	Price            float32
 	MarketCap        float32
 	Volume           float32
@@ -54,14 +53,18 @@ var config Config
 var BC *blockClock.Client
 
 func main() {
-	jsonFile, err := os.Open("config.json")
+	fileName := "config.json"
+	args := os.Args[1:]
+	if len(args) == 1 {
+		fileName = args[0]
+	}
+	jsonFile, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal(err)
 	}
-	jsonBytes, _ := ioutil.ReadAll(jsonFile)
-	_ = jsonFile.Close()
+	defer jsonFile.Close()
 
-	if err := json.Unmarshal(jsonBytes, &config); err != nil {
+	if err := json.NewDecoder(jsonFile).Decode(&config); err != nil {
 		log.Fatal(err)
 	}
 
@@ -115,14 +118,14 @@ func getTokenPrice(client *coingecko2.Client, token *TokenPrice) error {
 	token.ContractAddress = strings.ToLower(token.ContractAddress)
 	token.Currency = strings.ToLower(token.Currency)
 	var curPrice map[string]map[string]float32
-	if token.ContractAddress == types.Ethereum {
+	if token.Symbol == "ETH" {
 		retVal, err := client.SimplePrice([]string{token.ContractAddress}, []string{token.Currency})
 		if err != nil {
 			return err
 		}
 		curPrice = *retVal
 	} else {
-		retVal, err := client.SimpleTokenPrice(types.Ethereum, []string{token.ContractAddress}, []string{token.Currency})
+		retVal, err := client.SimpleTokenPrice(token.Platform, []string{token.ContractAddress}, []string{token.Currency})
 		if err != nil {
 			return err
 		}
